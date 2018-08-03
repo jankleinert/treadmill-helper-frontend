@@ -46,7 +46,7 @@ handleClick(direction, unit) {
       })
 
       axios
-        .get("http://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?mph="+ newMph)
+        .get("https://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?mph="+ newMph)
         .then(response => {
           console.log(response.data);
           this.setState({
@@ -62,7 +62,7 @@ handleClick(direction, unit) {
       })
 
       axios
-        .get("http://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?kph="+ newKph)
+        .get("https://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?kph="+ newKph)
         .then(response => {
           console.log(response.data);
           this.setState({
@@ -81,7 +81,7 @@ handleClick(direction, unit) {
       })
 
       axios
-        .get("http://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?mph="+ newMph)
+        .get("https://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?mph="+ newMph)
         .then(response => {
           console.log(response.data);
           this.setState({
@@ -97,7 +97,7 @@ handleClick(direction, unit) {
       })
       
       axios
-        .get("http://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?kph="+ newKph)
+        .get("https://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?kph="+ newKph)
         .then(response => {
           console.log(response.data);
           this.setState({
