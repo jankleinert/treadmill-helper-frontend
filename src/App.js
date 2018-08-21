@@ -36,7 +36,15 @@ constructor(props) {
 
 
 handleClick(direction, unit) {
-  var newMph, newKph;
+  var newMph, newKph, ip, port, path;
+
+  if (process.env.COMPONENT_BACKEND_HOST) {
+    ip = process.env.COMPONENT_BACKEND_HOST;
+    port = process.env.COMPONENT_BACKEND_PORT;
+    path = "https://" + ip + ":" + port + "/convert/";
+  } else {
+    path = "http://0.0.0.0:8080/convert/"
+  }
   if (direction.indexOf("up") !== -1) { // up button was clicked
     if (unit.indexOf("mph") !== -1) { // increment mph
       newMph = halfStepIncrement(this.state.mph);
@@ -46,9 +54,8 @@ handleClick(direction, unit) {
       })
 
       axios
-        .get("https://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?mph="+ newMph)
+        .get(path + "?mph=" + newMph)
         .then(response => {
-          console.log(response.data);
           this.setState({
             kph: response.data.result.toFixed(1),
           })
@@ -62,9 +69,8 @@ handleClick(direction, unit) {
       })
 
       axios
-        .get("https://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?kph="+ newKph)
+        .get(path + "?kph="+ newKph)
         .then(response => {
-          console.log(response.data);
           this.setState({
             mph: response.data.result.toFixed(1),
           })
@@ -81,9 +87,8 @@ handleClick(direction, unit) {
       })
 
       axios
-        .get("https://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?mph="+ newMph)
+        .get(path + "?mph="+ newMph)
         .then(response => {
-          console.log(response.data);
           this.setState({
             kph: response.data.result.toFixed(1),
           })
@@ -97,9 +102,8 @@ handleClick(direction, unit) {
       })
       
       axios
-        .get("https://treadmill-helper-treadmill-helper.6923.rh-us-east-1.openshiftapps.com/convert/?kph="+ newKph)
+        .get(path + "?kph="+ newKph)
         .then(response => {
-          console.log(response.data);
           this.setState({
             mph: response.data.result.toFixed(1),
           })
