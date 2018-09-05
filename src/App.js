@@ -38,13 +38,14 @@ constructor(props) {
 handleClick(direction, unit) {
   var newMph, newKph, ip, port, path;
   console.dir("here is process.env " + process.env);
-  if (process.env.COMPONENT_BACKEND_HOST) {
-    ip = process.env.COMPONENT_BACKEND_HOST;
-    port = process.env.COMPONENT_BACKEND_PORT;
-    path = "https://" + ip + ":" + port + "/convert/";
+  if (process.env.REACT_APP_COMPONENT_BACKEND_HOST) {
+    ip = process.env.REACT_APP_COMPONENT_BACKEND_HOST;
+    port = process.env.REACT_APP_COMPONENT_BACKEND_PORT;
+    path = "http://" + ip + ":" + port + "/convert/";
   } else {
     path = "http://backend:8080/convert/"
   }
+  console.log(path);
   if (direction.indexOf("up") !== -1) { // up button was clicked
     if (unit.indexOf("mph") !== -1) { // increment mph
       newMph = halfStepIncrement(this.state.mph);
